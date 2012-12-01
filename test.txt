@@ -1,1 +1,5 @@
-fe
+RewriteEngine On
+RewriteBase /dejavu/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /dejavu/index.php [L]
