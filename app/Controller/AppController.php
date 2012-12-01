@@ -32,4 +32,24 @@ App::uses('Controller', 'Controller');
  * @link http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+
+	function beforeFilter()
+    {
+        $this->__validateLoginStatus();
+    }
+
+	function __validateLoginStatus()
+    {
+		if($this->Session->check('User') == true && $this->params["controller"] != "login")
+		{
+			$this->redirect('home');
+			exit();
+		}	
+        else if($this->Session->check('User') == false && $this->params["controller"] != "login")
+        {
+            $this->redirect('/login');
+			exit();
+        }
+    }
+
 }
