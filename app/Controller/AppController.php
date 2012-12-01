@@ -33,23 +33,23 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 
-	function beforeFilter()
-    {
-        $this->__validateLoginStatus();
-    }
+	public $components = array(
+        'Session',
+        'Auth' => array(
+            'authenticate' => array('BcryptForm' => array('fields' => array('username' => 'email', 'password' => 'password')))
+            ));
 
-	function __validateLoginStatus()
-    {
-		if($this->Session->check('User') == true && $this->params["controller"] != "login")
+	function beforeFilter() {
+		
+		$this->Auth->userModel = 'User';
+        $this->Auth->loginRedirect = array('controller' => '/', 'action' => 'index');
+        $this->Auth->loginAction = array('controller' => 'login', 'action' => 'index');
+        $this->Auth->allow('*');
+        $this->Auth->deny('login');
+
+		if (!$this->Auth->user() && $this->params['controller'] !== 'login')
 		{
-			$this->redirect('home');
-			exit();
-		}	
-        else if($this->Session->check('User') == false && $this->params["controller"] != "login")
-        {
-            $this->redirect('/login');
-			exit();
-        }
-    }
-
+			return $this->redirect('/login');
+		}
+	}
 }

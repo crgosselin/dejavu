@@ -5,3 +5,161 @@
     font-style: normal;
 }
 
+.pull-left { float: left; }
+.pull-right { float: right; }
+.clearfix { clear: both; }
+.hide { display: none; }
+
+body
+{
+	-webkit-font-smoothing: antialiased;
+	background-color: #fafafa;
+	padding-top: 66px;
+}
+
+ul { padding: 0; }
+
+header
+{
+	background-color: #f2f2f2;
+	border-bottom: 1px solid #e3e3e3;
+	width: 100%;
+	height: 66px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 10;
+}
+
+nav ul
+{
+	margin-left: -5px;
+}
+
+nav ul li
+{
+	display: inline-block;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+}
+
+nav ul li a
+{
+	text-decoration: none;
+	color: #8b8b8b;
+	padding: 5px 10px;
+	margin: 0 5px;
+}
+
+nav ul li a.active, nav ul li a:hover
+{
+	background-color: #ffffff;
+	box-shadow: 0 1px 1px 1px #e4e4e4;
+	-moz-box-shadow: 0 1px 1px 1px #e4e4e4;
+	-webkit-box-shadow: 0 1px 1px 1px #e4e4e4;
+}
+
+.container
+{
+	width: 1000px;
+	margin: 0 auto;
+}
+
+header .container { padding: 10px 0; }
+
+.logo
+{
+	font-family: 'HelveticaUltraLight', 'Helvetica', 'Arial';
+	font-size: 36px;
+}
+
+.user
+{
+	font-family: 'HelveticaUltraLight', 'Helvetica', 'Arial';
+	font-size: 30px;
+	padding: 5px 0;
+}
+
+.user a.menu
+{
+	background: url('../img/hamburger.png') 0 0 no-repeat;
+	text-indent: -9999px;
+	display: inline-block;
+	height: 16px;
+	width: 24px;
+	margin: 0 10px;
+}
+
+.cube
+{
+	background-color: white;
+	width: 235px;
+	height: 200px;
+	float: left;
+	margin: 5px;
+	-webkit-transition: All 0.5s ease-in-out;
+  	-moz-transition: All 0.5s ease-in-out;
+  	-o-transition: All 0.5s ease-in-out;
+ 	-ms-transition: All 0.5s ease-in-out;
+  	transition: All 0.5s ease-in-out;
+}
+
+.cube-2
+{
+	width: 480px;
+}
+
+.cube a
+{
+	display: block;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	text-decoration: none;
+}
+
+.cube .title
+{
+	background-color: rgba(0, 0, 0, 0.6);
+	color: white;
+	padding: 5px 10px;
+	font-size: 30px;
+	margin-top: 130px;
+	display: inline-block;
+}
+
+.menu-drop
+{
+	background-color: white;
+	height: 0;
+	width: 235px;
+	position: absolute;
+	z-index: 5;
+	box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+	-webkit-transition: All 0.3s ease-in-out;
+  	-moz-transition: All 0.3s ease-in-out;
+  	-o-transition: All 0.3s ease-in-out;
+ 	-ms-transition: All 0.3s ease-in-out;
+  	transition: All 0.3s ease-in-out;
+}
+
+.triggered .menu-drop
+{
+	height: 250px;
+}
+
+.triggered .cube
+{
+	opacity: 0.4;
+}
+.cube.active
+{
+	opacity: 1;
+}
+
+
+
+
+

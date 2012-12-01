@@ -18,19 +18,17 @@
 
 $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		<?php echo $cakeDescription ?>:
 		<?php echo $title_for_layout; ?>
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
 
 		echo $this->Html->css(array('normalize.css', 'main.css'));
-		echo $this->Html->script(array('jquery-1.8.0.min.js'));
+		echo $this->Html->script(array('jquery-1.8.0.min.js', 'script.js'));
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
@@ -38,7 +36,17 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	?>
 </head>
 <body>
-	<div id="container">
+	<header>
+		<div class="container">
+			<span class="pull-left logo">DejaVu</span>
+			<span class="pull-right user">
+				Marcin Brzuzy
+				<a href="#" class="menu">menu</a>
+			</span>
+		</div>
+	</header>
+
+	<div class="container">
 		<div id="content">
 			<?php echo $this->Session->flash(); ?>
 			<?php echo $this->fetch('content'); ?>

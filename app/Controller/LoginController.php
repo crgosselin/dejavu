@@ -1,41 +1,21 @@
- <?php 
+<?php 
 class LoginController extends AppController
-{
-	var $name = "Login";
-    	
+{   	
 	function index()
 	{
-		 if(empty($this->data) == false)
-        {
-            if(($user = $this->User->validateLogin($this->data['User'])) == true)
+		 if ($this->request->isPost())
+         {
+            if ($this->Auth->login())
             {
-                $this->Session->write('User', $user);
-                $this->redirect('home');
-                exit();
+                return $this->redirect($this->Auth->redirect());
             }
             else
             {
-                exit();
+                $this->Session->setFlash('Username or password is incorrect', 'default', array('class' => 'alert alert-error'));
             }
-        }
+         }
 	}
-	
-	function newUser()
-	{
-		if(empty($this->data) == false)
-		{
-			if(($user = $this->User->createUser($this->data['User'])) == true)
-            {
-                $this->Session->write('User', $user);
-                $this->redirect('home');
-                exit();
-            }
-            else
-            {
-                exit();
-            }
-		}
-	}
+
     
 }
 
